@@ -2,6 +2,8 @@
  **  Basic Data Types
  **  Primitive Data Type: String, Number, Boolean, Null, Undefined, Symbol --> (Immutable)
  **  Non Primitive Data Type: Object, Array, Tuple, Function() --> (Mutable)
+ **  Union, Intersection, Never, Nullable, Unknown, Literal type
+ **  Name Alias, Type Alias
  **/
 
 // Primitive Data Type
@@ -148,5 +150,130 @@ const user2: {
 
 const {
   contact,
-  name: { lName: lastName }, // type alias
+  name: { lName: lastName }, // name alias
 } = user2;
+
+// Object Type Alias / Assertions
+type Student = {
+  name: string;
+  roll: number;
+  isRegular: boolean;
+  contact: string;
+  gender: string;
+  position: string;
+  hobby?: string;
+};
+
+const student1: Student = {
+  name: "Rajib",
+  roll: 12,
+  isRegular: true,
+  contact: "01700000000",
+  gender: "male",
+  position: "first",
+  hobby: "criket",
+};
+
+const student2: Student = {
+  name: "Sajib",
+  roll: 13,
+  isRegular: true,
+  contact: "01700000001",
+  gender: "male",
+  position: "first",
+};
+
+const student3: Student = {
+  name: "Karim",
+  roll: 14,
+  isRegular: true,
+  contact: "01700000002",
+  gender: "male",
+  position: "first",
+};
+
+// Variable Type Alias / Assertions
+type FirstName = string;
+const firstName: FirstName = "Rahul";
+
+type IsEngineer = boolean;
+const isSWE: IsEngineer = true;
+
+// Function Type Alias / Assertions
+type Add = (x: number, y: number) => number;
+const add: Add = (num1, num2) => num1 + num2;
+
+// Union Type
+type FrontendDeveloper1 = "FakibarDeveloper" | "JuniorDeveloper";
+type BackendDeveloper1 = "FakibarDeveloper" | "MidLevelDeveloper";
+
+type FullStackDeveloper1 =
+  | FrontendDeveloper1
+  | BackendDeveloper1
+  | "ExpertDeveloper";
+
+const newDeveloper1: FullStackDeveloper1 = "ExpertDeveloper";
+
+// More Example
+type User = {
+  name: string;
+  email?: string;
+  gender: "Male" | "Female"; // Literal type with Union
+  bloodGroup: "O+" | "A+" | "B+" | "AB+";
+};
+
+const person: User = {
+  name: "Rahul",
+  gender: "Male",
+  bloodGroup: "B+",
+};
+
+// InterSection Type
+type FrontendDeveloper2 = {
+  skills: string[];
+  designation1: "Frontend Developer";
+};
+
+type BackendDeveloper2 = {
+  skills: string[];
+  designation2: "Backend Developer";
+};
+
+type FullStackDeveloper2 = FrontendDeveloper2 & BackendDeveloper2;
+
+const newDeveloper2: FullStackDeveloper2 = {
+  skills: ["HTML", "CSS", "JS", "Node", "React"],
+  designation1: "Frontend Developer",
+  designation2: "Backend Developer",
+};
+
+// Nullable Type
+function searchAble(value: string | null) {
+  if (value) {
+    console.log("Searchable Data API Calling");
+  } else {
+    console.log("Get All Data API Calling");
+  }
+}
+
+searchAble(null);
+
+// UnKnown Type
+const getSpeedInMeterPerSecond = (value: unknown) => {
+  if (typeof value === "number") {
+    const convertedSpeed = (value * 1000) / 3600;
+    console.log(`The Speed is ${convertedSpeed} ms^-1`);
+  } else if (typeof value === "string") {
+    const [val, unit] = value.split(" ");
+    const convertedSpeed = (parseFloat(val) * 1000) / 3600;
+    console.log(`The Speed is ${convertedSpeed} ms^-1`);
+  } else {
+    console.log("Wrong Input");
+  }
+};
+
+// Never Type
+const thorwError = (errMsg: string): never => {
+  throw new Error(errMsg);
+};
+thorwError("Error Khaiso");

@@ -3,6 +3,8 @@
  **  Basic Data Types
  **  Primitive Data Type: String, Number, Boolean, Null, Undefined, Symbol --> (Immutable)
  **  Non Primitive Data Type: Object, Array, Tuple, Function() --> (Mutable)
+ **  Union, Intersection, Never, Nullable, Unknown, Literal type
+ **  Name Alias, Type Alias
  **/
 // Primitive Data Type
 // String
@@ -92,5 +94,74 @@ const user2 = {
     contact: "01700000000",
     age: 28,
 };
-const { contact, name: { lName: lastName }, // type alias
+const { contact, name: { lName: lastName }, // name alias
  } = user2;
+const student1 = {
+    name: "Rajib",
+    roll: 12,
+    isRegular: true,
+    contact: "01700000000",
+    gender: "male",
+    position: "first",
+    hobby: "criket",
+};
+const student2 = {
+    name: "Sajib",
+    roll: 13,
+    isRegular: true,
+    contact: "01700000001",
+    gender: "male",
+    position: "first",
+};
+const student3 = {
+    name: "Karim",
+    roll: 14,
+    isRegular: true,
+    contact: "01700000002",
+    gender: "male",
+    position: "first",
+};
+const firstName = "Rahul";
+const isSWE = true;
+const add = (num1, num2) => num1 + num2;
+const newDeveloper1 = "ExpertDeveloper";
+const person = {
+    name: "Rahul",
+    gender: "Male",
+    bloodGroup: "B+",
+};
+const newDeveloper2 = {
+    skills: ["HTML", "CSS", "JS", "Node", "React"],
+    designation1: "Frontend Developer",
+    designation2: "Backend Developer",
+};
+// Nullable Type
+function searchAble(value) {
+    if (value) {
+        console.log("Searchable Data API Calling");
+    }
+    else {
+        console.log("Get All Data API Calling");
+    }
+}
+searchAble(null);
+// UnKnown Type
+const getSpeedInMeterPerSecond = (value) => {
+    if (typeof value === "number") {
+        const convertedSpeed = (value * 1000) / 3600;
+        console.log(`The Speed is ${convertedSpeed} ms^-1`);
+    }
+    else if (typeof value === "string") {
+        const [val, unit] = value.split(" ");
+        const convertedSpeed = (parseFloat(val) * 1000) / 3600;
+        console.log(`The Speed is ${convertedSpeed} ms^-1`);
+    }
+    else {
+        console.log("Wrong Input");
+    }
+};
+// Never Type
+const thorwError = (errMsg) => {
+    throw new Error(errMsg);
+};
+thorwError("Error Khaiso");
