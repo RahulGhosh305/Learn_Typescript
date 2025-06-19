@@ -153,7 +153,7 @@ const {
   name: { lName: lastName }, // name alias
 } = user2;
 
-// Object Type Alias / Assertions
+// Object Type Alias
 type Student = {
   name: string;
   roll: number;
@@ -264,7 +264,7 @@ const getSpeedInMeterPerSecond = (value: unknown) => {
     const convertedSpeed = (value * 1000) / 3600;
     console.log(`The Speed is ${convertedSpeed} ms^-1`);
   } else if (typeof value === "string") {
-    const [val, unit] = value.split(" ");
+    const [val, unit] = value.split(" "); // array destructureing
     const convertedSpeed = (parseFloat(val) * 1000) / 3600;
     console.log(`The Speed is ${convertedSpeed} ms^-1`);
   } else {
