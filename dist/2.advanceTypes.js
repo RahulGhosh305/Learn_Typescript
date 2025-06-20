@@ -1,7 +1,9 @@
 "use strict";
 /**
  **  Advance Data Types
- **  Type Assertions,
+ **  Type Assertions
+ **  Interface
+ **  Generic Types
  **/
 // Type Assertions
 let anything;
@@ -38,3 +40,19 @@ const person1 = {
 };
 let rollList = [1, 2, 3]; // For Array Recommended Type Alias
 const sum = (num1, num2) => num1 + num2; // For Function Recommended Type Alias
+const arr4 = [1, 2, 3];
+const arr5 = ["Mr. X", "Mr. Y", "Mr. Z"];
+const arr6 = [true, false, true, true];
+const arr7 = [
+    {
+        name: "Mr. X",
+        details: {
+            age: 25,
+            gender: "Female",
+        },
+    },
+];
+const arr8 = [
+    "Mr.X",
+    { age: 30, gender: "Male" },
+];

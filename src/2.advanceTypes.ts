@@ -1,6 +1,8 @@
 /**
  **  Advance Data Types
- **  Type Assertions,
+ **  Type Assertions
+ **  Interface
+ **  Generic Types
  **/
 
 // Type Assertions
@@ -74,3 +76,31 @@ interface Sum2 {
   (num1: number, num2: number): number;
 }
 const sum: Sum1 = (num1, num2) => num1 + num2; // For Function Recommended Type Alias
+
+// Generic Types
+// array --> generic
+type GenericArray<T> = Array<T>;
+
+const arr4: GenericArray<number> = [1, 2, 3];
+const arr5: GenericArray<string> = ["Mr. X", "Mr. Y", "Mr. Z"];
+const arr6: GenericArray<boolean> = [true, false, true, true];
+const arr7: GenericArray<{
+  name: string;
+  details: { age: number; gender: "Male" | "Female" };
+}> = [
+  {
+    name: "Mr. X",
+    details: {
+      age: 25,
+      gender: "Female",
+    },
+  },
+];
+
+// tuple --> generic
+type GenericTuple<X, Y> = [X, Y];
+
+const arr8: GenericTuple<string, { age: number; gender: "Male" | "female" }> = [
+  "Mr.X",
+  { age: 30, gender: "Male" },
+];
