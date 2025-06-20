@@ -3,7 +3,7 @@
  **  Type Assertions,
  **/
 
-// Assertions
+// Type Assertions
 let anything: any;
 anything = "Next Level Typescript";
 (anything as string).length; // type assertions
@@ -35,3 +35,42 @@ try {
 } catch (error) {
   (error as ErrorCase).message;
 }
+
+// Interface
+interface PersonBasicInfo {
+  name: string;
+  age: number;
+  gender: "Male" | "Female" | "Others";
+}
+
+interface EducationInfo extends PersonBasicInfo {
+  education?: string;
+}
+
+interface PersonDetails extends EducationInfo {
+  address: string;
+}
+
+// For Object Recommened Interface
+const person1: PersonDetails = {
+  name: "Mr,. X",
+  age: 30,
+  gender: "Male",
+  address: "Bangladesh",
+};
+
+// More Example for Array
+type RollList1 = number[];
+// Alternative for Array
+interface RollList2 {
+  [index: number]: number;
+}
+let rollList: RollList1 = [1, 2, 3]; // For Array Recommended Type Alias
+
+// More Example for Function
+type Sum1 = (num1: number, num2: number) => number;
+// Alternative for Function
+interface Sum2 {
+  (num1: number, num2: number): number;
+}
+const sum: Sum1 = (num1, num2) => num1 + num2; // For Function Recommended Type Alias

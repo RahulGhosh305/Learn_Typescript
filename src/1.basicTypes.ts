@@ -192,14 +192,14 @@ const student3: Student = {
   position: "first",
 };
 
-// Variable Type Alias / Assertions
+// Variable Type Alias
 type FirstName = string;
 const firstName: FirstName = "Rahul";
 
 type IsEngineer = boolean;
 const isSWE: IsEngineer = true;
 
-// Function Type Alias / Assertions
+// Function Type Alias
 type Add = (x: number, y: number) => number;
 const add: Add = (num1, num2) => num1 + num2;
 

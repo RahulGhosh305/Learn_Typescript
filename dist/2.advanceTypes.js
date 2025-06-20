@@ -3,7 +3,7 @@
  **  Advance Data Types
  **  Type Assertions,
  **/
-// Assertions
+// Type Assertions
 let anything;
 anything = "Next Level Typescript";
 anything.length; // type assertions
@@ -29,3 +29,12 @@ try {
 catch (error) {
     error.message;
 }
+// For Object Recommened Interface
+const person1 = {
+    name: "Mr,. X",
+    age: 30,
+    gender: "Male",
+    address: "Bangladesh",
+};
+let rollList = [1, 2, 3]; // For Array Recommended Type Alias
+const sum = (num1, num2) => num1 + num2; // For Function Recommended Type Alias
