@@ -4,7 +4,7 @@
  **  Interface
  **  Generic Types
  **  Generic --> Interface, Function, Tuple
- **  Constraints
+ **  Constraints and Constraints with Keyof
  **/
 
 // Type Assertions
@@ -276,3 +276,37 @@ const car = {
 };
 const res6 = getPropertyValue(employee, "name");
 const res7 = getPropertyValue(car, "model");
+
+// Asynchronous / Promise Type
+const createPromise = (): Promise<string> => {
+  return new Promise<string>((resolve, reject) => {
+    const data: string = "Something";
+
+    if (data) {
+      resolve(data);
+    } else {
+      reject("Failed");
+    }
+  });
+};
+
+const showData = async (): Promise<string> => {
+  const data: string = await createPromise();
+  return data;
+};
+
+//More Example
+type Post = {
+  id: number;
+  title: string;
+  body: string;
+  userId: number;
+};
+const getTodo = async (): Promise<Post> => {
+  const data: Response = await fetch(
+    "https://jsonplaceholder.typicode.com/posts/1"
+  );
+  const resp: Promise<Post> = data.json();
+
+  return resp;
+};
