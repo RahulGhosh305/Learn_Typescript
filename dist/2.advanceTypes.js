@@ -6,6 +6,9 @@
  **  Generic Types
  **  Generic --> Interface, Function, Tuple
  **  Constraints and Constraints with Keyof
+ **  Conditional Type
+ **  Mapped Type
+ **  More Type --> Pick, Omit, Readonly, Partial, Requied, Record, EmptyObject
  **/
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
@@ -172,3 +175,8 @@ const getTodo = () => __awaiter(void 0, void 0, void 0, function* () {
     const resp = data.json();
     return resp;
 });
+const myObj = {
+    a: "Hello",
+    b: "world",
+};
+const emptyObj = {};

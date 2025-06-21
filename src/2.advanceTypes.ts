@@ -5,6 +5,9 @@
  **  Generic Types
  **  Generic --> Interface, Function, Tuple
  **  Constraints and Constraints with Keyof
+ **  Conditional Type
+ **  Mapped Type
+ **  More Type --> Pick, Omit, Readonly, Partial, Requied, Record, EmptyObject
  **/
 
 // Type Assertions
@@ -310,3 +313,72 @@ const getTodo = async (): Promise<Post> => {
 
   return resp;
 };
+
+// Conditional Type
+type A1 = null;
+type B1 = undefined;
+
+type X1 = A1 extends null
+  ? B1 extends undefined
+    ? undefined
+    : number
+  : string;
+
+// More Example
+
+type Shekh = {
+  bike: string;
+  car: string;
+  plane: string;
+  ship: string;
+};
+
+type VehicleCheck<T> = T extends keyof Shekh ? true : false;
+type HasBike = VehicleCheck<"plane">;
+
+// Mapped Type
+type AreaNumber = {
+  width: number;
+  height: number;
+};
+
+type AreaString = {
+  [index in keyof AreaNumber]: string; // mapped
+};
+
+// Lookup type
+type Height = AreaNumber["height"];
+
+// Utility Type
+type Person2 = {
+  name: string;
+  age: number;
+  email?: string;
+  contactNo: string;
+};
+// Pick
+type NameAge = Pick<Person2, "name" | "age">; // Take element
+
+// Omit
+type contactInfo = Omit<Person2, "name" | "age">; // Remove element
+
+// Required
+type RequiredType = Required<Person2>;
+
+// partial
+type Partial2 = Partial<Person2>;
+
+//ReadOnly
+type ReadOnly1 = Readonly<Person2>;
+
+// Record
+type MyReacord = Record<string, string>;
+
+const myObj: MyReacord = {
+  a: "Hello",
+  b: "world",
+};
+
+// Empty Object
+type EmptyObj = Record<string, unknown>;
+const emptyObj: EmptyObj = {};
