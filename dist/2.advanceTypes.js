@@ -56,3 +56,36 @@ const arr8 = [
     "Mr.X",
     { age: 30, gender: "Male" },
 ];
+const poorDeveloper = {
+    name: "Poor Dev",
+    computer: {
+        name: "HP",
+        model: "ZBook",
+        releaseYear: "2020",
+    },
+    smartWatch: {
+        brand: "BitLock",
+        model: "B22",
+        display: "OLED",
+    },
+};
+const richDeveloper = {
+    name: "Rich Dev",
+    computer: {
+        name: "MacBook",
+        model: "M4",
+        releaseYear: "2025",
+    },
+    smartWatch: {
+        brand: "Apple",
+        model: "X-10",
+        display: "Retina",
+        heartBeat: true,
+        so2: true,
+    },
+    bike: {
+        name: "Royel Emfeild",
+        model: "2025",
+        cc: "400",
+    },
+};

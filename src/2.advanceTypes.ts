@@ -77,17 +77,18 @@ interface Sum2 {
 }
 const sum: Sum1 = (num1, num2) => num1 + num2; // For Function Recommended Type Alias
 
-// Generic Types
+// Generic Types in Type
 // array --> generic
 type GenericArray<T> = Array<T>;
 
 const arr4: GenericArray<number> = [1, 2, 3];
 const arr5: GenericArray<string> = ["Mr. X", "Mr. Y", "Mr. Z"];
 const arr6: GenericArray<boolean> = [true, false, true, true];
-const arr7: GenericArray<{
+type Person11 = {
   name: string;
   details: { age: number; gender: "Male" | "Female" };
-}> = [
+};
+const arr7: GenericArray<Person11> = [
   {
     name: "Mr. X",
     details: {
@@ -104,3 +105,70 @@ const arr8: GenericTuple<string, { age: number; gender: "Male" | "female" }> = [
   "Mr.X",
   { age: 30, gender: "Male" },
 ];
+
+// Generic Types in Interface
+// generic --> Interface
+
+interface Developer<X, Y = null> {
+  name: string;
+  computer: {
+    name: string;
+    model: string;
+    releaseYear: string;
+  };
+  smartWatch: X;
+  bike?: Y;
+}
+
+interface PoorWatch {
+  brand: string;
+  model: string;
+  display: string;
+}
+const poorDeveloper: Developer<PoorWatch> = {
+  name: "Poor Dev",
+  computer: {
+    name: "HP",
+    model: "ZBook",
+    releaseYear: "2020",
+  },
+  smartWatch: {
+    brand: "BitLock",
+    model: "B22",
+    display: "OLED",
+  },
+};
+
+interface RichWatch {
+  brand: string;
+  model: string;
+  display: string;
+  heartBeat: boolean;
+  so2: boolean;
+}
+interface Bike {
+  name: string;
+  model: string;
+  cc: string;
+}
+
+const richDeveloper: Developer<RichWatch, Bike> = {
+  name: "Rich Dev",
+  computer: {
+    name: "MacBook",
+    model: "M4",
+    releaseYear: "2025",
+  },
+  smartWatch: {
+    brand: "Apple",
+    model: "X-10",
+    display: "Retina",
+    heartBeat: true,
+    so2: true,
+  },
+  bike: {
+    name: "Royel Emfeild",
+    model: "2025",
+    cc: "400",
+  },
+};
