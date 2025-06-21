@@ -3,6 +3,8 @@
  **  Type Assertions
  **  Interface
  **  Generic Types
+ **  Generic --> Interface, Function, Tuple
+ **  Constraints
  **/
 
 // Type Assertions
@@ -107,8 +109,7 @@ const arr8: GenericTuple<string, { age: number; gender: "Male" | "female" }> = [
 ];
 
 // Generic Types in Interface
-// generic --> Interface
-
+// generic --> Interface/Object
 interface Developer<X, Y = null> {
   name: string;
   computer: {
@@ -172,3 +173,106 @@ const richDeveloper: Developer<RichWatch, Bike> = {
     cc: "400",
   },
 };
+
+// Generic in Function
+const createArrayWithGeneric = <T>(param: T): T[] => {
+  return [param];
+};
+
+type Person = {
+  name: string;
+  job: "SWE";
+  age?: 20;
+};
+const res1 = createArrayWithGeneric<string>("Bangladesh");
+const res2 = createArrayWithGeneric<number>(100);
+const res3 = createArrayWithGeneric<Person>({ name: "Mr. X", job: "SWE" });
+
+// Generic in Tuple
+const createTupleWithGeneric = <T, Q>(param1: T, param2: Q): [T, Q] => {
+  return [param1, param2];
+};
+
+const res4 = createTupleWithGeneric<string, boolean>("Bangladesh", true);
+const res5 = createTupleWithGeneric<Person, boolean>(
+  { name: "Mr. X", job: "SWE" },
+  true
+);
+
+// Generic with Fixed value
+const addCourse = <T>(params: T) => {
+  const course = "Learn Typescript";
+
+  return {
+    ...params,
+    course,
+  };
+};
+
+const student4 = addCourse({ name: "Mr. X", age: 20 });
+
+// Constraints
+const addCourseToStudent = <
+  T extends { id: number; name: string; email: string } // Constraints property
+>(
+  params: T
+) => {
+  const course = " Typescript";
+
+  return {
+    ...params,
+    course,
+  };
+};
+
+const student5 = addCourseToStudent<{
+  id: number;
+  name: string;
+  email: string;
+  hasWatch: boolean;
+}>({
+  id: 1,
+  name: "Mr. X",
+  email: "x@gmail.com",
+  hasWatch: true,
+});
+
+const student6 = addCourseToStudent<{
+  id: number;
+  name: string;
+  email: string;
+  hasMobile: boolean;
+}>({
+  id: 1,
+  name: "Mr. X",
+  email: "x@gmail.com",
+  hasMobile: true,
+});
+
+// Constraint with Keyof
+type Vehicle = {
+  bike: string;
+  car: string;
+  ship: string;
+};
+
+type Owner = "Bike" | "Car" | "ship"; // Manual "Bike" | "Car" | "ship";
+type Owner2 = keyof Vehicle; // Dynamic "Bike" | "Car" | "ship";
+
+// More Example
+const getPropertyValue = <X, Y extends keyof X>(obj: X, key: Y) => {
+  return obj[key];
+};
+
+const employee = {
+  name: "Mr. X",
+  age: 25,
+  salary: 20000,
+};
+
+const car = {
+  name: "X Corola",
+  model: 2020,
+};
+const res6 = getPropertyValue(employee, "name");
+const res7 = getPropertyValue(car, "model");

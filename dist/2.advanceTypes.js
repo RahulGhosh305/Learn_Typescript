@@ -4,6 +4,8 @@
  **  Type Assertions
  **  Interface
  **  Generic Types
+ **  Generic --> Interface, Function, Tuple
+ **  Constraints
  **/
 // Type Assertions
 let anything;
@@ -89,3 +91,54 @@ const richDeveloper = {
         cc: "400",
     },
 };
+// Generic in Function
+const createArrayWithGeneric = (param) => {
+    return [param];
+};
+const res1 = createArrayWithGeneric("Bangladesh");
+const res2 = createArrayWithGeneric(100);
+const res3 = createArrayWithGeneric({ name: "Mr. X", job: "SWE" });
+// Generic in Tuple
+const createTupleWithGeneric = (param1, param2) => {
+    return [param1, param2];
+};
+const res4 = createTupleWithGeneric("Bangladesh", true);
+const res5 = createTupleWithGeneric({ name: "Mr. X", job: "SWE" }, true);
+// Generic with Fixed value
+const addCourse = (params) => {
+    const course = "Learn Typescript";
+    return Object.assign(Object.assign({}, params), { course });
+};
+const student4 = addCourse({ name: "Mr. X", age: 20 });
+// Constraints
+const addCourseToStudent = (params) => {
+    const course = " Typescript";
+    return Object.assign(Object.assign({}, params), { course });
+};
+const student5 = addCourseToStudent({
+    id: 1,
+    name: "Mr. X",
+    email: "x@gmail.com",
+    hasWatch: true,
+});
+const student6 = addCourseToStudent({
+    id: 1,
+    name: "Mr. X",
+    email: "x@gmail.com",
+    hasMobile: true,
+});
+// More Example
+const getPropertyValue = (obj, key) => {
+    return obj[key];
+};
+const employee = {
+    name: "Mr. X",
+    age: 25,
+    salary: 20000,
+};
+const car = {
+    name: "X Corola",
+    model: 2020,
+};
+const res6 = getPropertyValue(employee, "name");
+const res7 = getPropertyValue(car, "model");
