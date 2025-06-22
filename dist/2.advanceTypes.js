@@ -8,6 +8,7 @@
  **  Constraints and Constraints with Keyof
  **  Conditional Type
  **  Mapped Type
+ **  Lookup
  **  More Type --> Pick, Omit, Readonly, Partial, Requied, Record, EmptyObject
  **/
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
@@ -121,7 +122,10 @@ const addCourse = (params) => {
     const course = "Learn Typescript";
     return Object.assign(Object.assign({}, params), { course });
 };
-const student4 = addCourse({ name: "Mr. X", age: 20 });
+const student4 = addCourse({
+    name: "Mr. X",
+    age: 20,
+});
 // Constraints
 const addCourseToStudent = (params) => {
     const course = " Typescript";

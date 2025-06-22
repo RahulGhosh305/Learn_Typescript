@@ -1,7 +1,7 @@
 /**
  **  Basic Data Types
  **  Primitive Data Type: String, Number, Boolean, Null, Undefined, Symbol --> (Immutable)
- **  Non Primitive Data Type: Object, Array, Tuple, Function() --> (Mutable)
+ **  Non Primitive Data Type: Object, Array, Tuple, Function --> (Mutable)
  **  Union, Intersection, Never, Nullable, Unknown, Literal type
  **  Name Alias, Type Alias
  **/
@@ -161,7 +161,7 @@ type Student = {
   contact: string;
   gender: string;
   position: string;
-  hobby?: string;
+  hobby?: string; // Optional Type
 };
 
 const student1: Student = {
@@ -218,13 +218,13 @@ const newDeveloper1: FullStackDeveloper1 = "ExpertDeveloper";
 type User = {
   name: string;
   email?: string;
-  gender: "Male" | "Female"; // Literal type with Union
+  gender: "Male" | "Female" | "Other"; // Literal type with Union
   bloodGroup: "O+" | "A+" | "B+" | "AB+";
 };
 
 const person: User = {
   name: "Rahul",
-  gender: "Male",
+  gender: "Other",
   bloodGroup: "B+",
 };
 

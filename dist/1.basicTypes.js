@@ -2,7 +2,7 @@
 /**
  **  Basic Data Types
  **  Primitive Data Type: String, Number, Boolean, Null, Undefined, Symbol --> (Immutable)
- **  Non Primitive Data Type: Object, Array, Tuple, Function() --> (Mutable)
+ **  Non Primitive Data Type: Object, Array, Tuple, Function --> (Mutable)
  **  Union, Intersection, Never, Nullable, Unknown, Literal type
  **  Name Alias, Type Alias
  **/
@@ -127,7 +127,7 @@ const add = (num1, num2) => num1 + num2;
 const newDeveloper1 = "ExpertDeveloper";
 const person = {
     name: "Rahul",
-    gender: "Male",
+    gender: "Other",
     bloodGroup: "B+",
 };
 const newDeveloper2 = {

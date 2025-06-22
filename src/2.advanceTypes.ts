@@ -7,6 +7,7 @@
  **  Constraints and Constraints with Keyof
  **  Conditional Type
  **  Mapped Type
+ **  Lookup
  **  More Type --> Pick, Omit, Readonly, Partial, Requied, Record, EmptyObject
  **/
 
@@ -212,7 +213,10 @@ const addCourse = <T>(params: T) => {
   };
 };
 
-const student4 = addCourse({ name: "Mr. X", age: 20 });
+const student4 = addCourse<{ name: string; age: number }>({
+  name: "Mr. X",
+  age: 20,
+});
 
 // Constraints
 const addCourseToStudent = <
@@ -353,7 +357,7 @@ type Height = AreaNumber["height"];
 type Person2 = {
   name: string;
   age: number;
-  email?: string;
+  email?: string; // Optional Type
   contactNo: string;
 };
 // Pick
