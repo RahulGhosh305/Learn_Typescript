@@ -27,10 +27,8 @@ class Animan {
     console.log(`${this.name} is call by ${this.sound}`);
   }
 }
-const dog = new Animan("German Shepad", "Dog", "Ghew Ghew"); // Create new Dog Instance
-console.log(dog.makeSound());
 
-// Alternative Above
+// Alternative above class
 class AnimalAlternative {
   constructor(
     public name: string,
@@ -42,6 +40,7 @@ class AnimalAlternative {
     console.log(`${this.name} is call by ${this.sound}`);
   }
 }
-
+const dog = new AnimalAlternative("German Shepard", "Dog", "Ghew Ghew"); // Create new Dog Instance
+console.log(dog.makeSound());
 const cat = new AnimalAlternative("Persian", "Cat", "Maew Maew"); // Create new Cat Instance
 console.log(cat.makeSound());
