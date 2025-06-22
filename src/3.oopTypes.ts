@@ -30,6 +30,7 @@ class Animan {
 
 // Alternative above class
 class AnimalAlternative {
+  // Parameter Properties
   constructor(
     public name: string,
     public species: string,
@@ -41,6 +42,7 @@ class AnimalAlternative {
   }
 }
 const dog = new AnimalAlternative("German Shepard", "Dog", "Ghew Ghew"); // Create new Dog Instance
-console.log(dog.makeSound());
+dog.makeSound();
+
 const cat = new AnimalAlternative("Persian", "Cat", "Maew Maew"); // Create new Cat Instance
-console.log(cat.makeSound());
+cat.makeSound();
