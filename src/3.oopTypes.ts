@@ -1,6 +1,7 @@
 /**
  **  Class
  **  OOP -> Inheritance
+ **  Type Guard -> typeof, in, instance
  **
  **
  **
@@ -136,3 +137,52 @@ const advanceUser: AdvanceUser = {
 
 console.log(getUser(normalUser)); // Mr.X is Normal User
 console.log(getUser(advanceUser)); // Mr.X is admin User
+
+// Guard --> instanceof
+class Animal {
+  name: string;
+  species: string;
+
+  constructor(name: string, species: string) {
+    this.name = name;
+    this.species = species;
+  }
+
+  makeSound() {
+    console.log("I am making sound");
+  }
+}
+
+class Dog extends Animal {
+  constructor(name: string, species: string) {
+    super(name, species);
+  }
+  makeBark() {
+    console.log("I am Making Bark");
+  }
+}
+
+class Cat extends Animal {
+  constructor(name: string, species: string) {
+    super(name, species);
+  }
+  makeMeaw() {
+    console.log("I am Making Meaw");
+  }
+}
+
+const getAnimal = (instance: Animal) => {
+  if (instance instanceof Dog) {
+    instance.makeBark();
+  } else if (instance instanceof Cat) {
+    instance.makeMeaw();
+  } else {
+    instance.makeSound();
+  }
+};
+
+const dog1 = new Dog("Tommy", "dog");
+const cat1 = new Cat("Catty", "cat");
+
+getAnimal(dog1);
+getAnimal(cat1);
