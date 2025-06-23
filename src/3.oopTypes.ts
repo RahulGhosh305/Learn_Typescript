@@ -93,3 +93,46 @@ class Teacher extends PersonClass {
   const teacher = new Teacher("Mr. X", 20, "Dhaka", "Professor");
   teacher.getSleep(8);
 }
+
+// Guard --> Typeof
+const add2 = (
+  number1: string | number,
+  number2: string | number
+): string | number => {
+  // Typeof Guard
+  if (typeof number1 === "number" && typeof number2 === "number") {
+    return number1 + number2;
+  } else {
+    return number1.toString() + number2.toString();
+  }
+};
+
+// Guard --> In
+type NormalUser = {
+  name: string;
+};
+
+type AdvanceUser = {
+  name: string;
+  role: string;
+};
+
+function getUser(user: NormalUser | AdvanceUser): string {
+  if ("role" in user) {
+    return `${user.name} is ${user.role} User`;
+  } else {
+    return `${user.name} is Normal User`;
+  }
+}
+
+const normalUser: NormalUser = {
+  name: "Mr.X",
+};
+
+const advanceUser: AdvanceUser = {
+  name: "Mr.Y",
+  role: "admin",
+};
+
+console.log(getUser(normalUser)); // Mr.X is Normal User
+console.log(getUser(advanceUser)); // Mr.X is admin User
