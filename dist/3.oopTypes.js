@@ -3,13 +3,10 @@
  **  Class
  **  OOP -> Inheritance
  **  Type Guard -> typeof, in, instance
- **
- **
- **
- **
- **
- **
- **
+ **  Access Modifier --> Public, Private, Protected
+ **  getter and setter
+ **  Polymorphism
+ **  Abstraction
  **
  **/
 // Class
@@ -143,3 +140,89 @@ const dog1 = new Dog("Tommy", "dog");
 const cat1 = new Cat("Catty", "cat");
 getAnimal(dog1);
 getAnimal(cat1);
+// Access Modifier
+class BankAccount {
+    constructor(id, name, balance, gold) {
+        this.id = id;
+        this.name = name;
+        this._balance = balance;
+        this.gold = gold;
+    }
+    setBalance(amount) {
+        this._balance = this._balance + amount;
+    }
+    getBalance() {
+        return this._balance;
+    }
+}
+const personAccount = new BankAccount(111, "Mr. X", 20, "100gm");
+class StudentAccount extends BankAccount {
+    openAccont() {
+        console.log("I am Opening Account");
+    }
+}
+const studentAccount = new StudentAccount(222, "Mr. Y", 100, "20gm");
+studentAccount.setBalance(100); // By Using Function Calling
+console.log(studentAccount.getBalance()); // By Using Function Calling
+// Get and Set
+class BankAccount2 {
+    constructor(id, name, _balance) {
+        this.id = id;
+        this.name = name;
+        this._balance = _balance;
+    }
+    // Setter
+    set deposit(amount) {
+        this._balance = this._balance + amount;
+    }
+    // Getter
+    get showBalance() {
+        return this._balance;
+    }
+}
+const personAccount2 = new BankAccount2(22, "Mr. Z", 150);
+personAccount2.deposit = 850; // By Calling As Like Property
+const myBalance = personAccount2.showBalance; // By Calling As Like Property
+console.log(myBalance);
+// Static
+class Couter {
+    increment() {
+        Couter.count = Couter.count + 1;
+    }
+    decrement() {
+        Couter.count = Couter.count - 1;
+    }
+}
+Couter.count = 0;
+const instance11 = new Couter();
+const instance22 = new Couter();
+instance11.increment();
+instance22.increment();
+console.log(Couter.count);
+console.log(Couter.count);
+// Polymorphism
+class Person101 {
+    getSleep() {
+        console.log("I am sleeping 8 hour long");
+    }
+}
+class Student2 extends Person101 {
+    getSleep() {
+        console.log("I am sleeping 7 hour long");
+    }
+}
+class Employee2 extends Person101 {
+    getSleep() {
+        console.log("I am sleeping 6 hour long");
+    }
+}
+const getNumberOfSleepRecord = (param) => {
+    return param.getSleep();
+};
+const man1 = new Person101();
+const man2 = new Student2();
+const man3 = new Employee2();
+getNumberOfSleepRecord(man1);
+getNumberOfSleepRecord(man2);
+getNumberOfSleepRecord(man3);
+// Abstruction
