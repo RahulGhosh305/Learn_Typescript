@@ -7,7 +7,7 @@
  **  getter and setter
  **  Polymorphism
  **  Abstraction
- **
+ **  Encapsulation
  **/
 // Class
 class Animan {
@@ -225,4 +225,59 @@ const man3 = new Employee2();
 getNumberOfSleepRecord(man1);
 getNumberOfSleepRecord(man2);
 getNumberOfSleepRecord(man3);
-// Abstruction
+// Real Implementation
+class Car1 {
+    startEngine() {
+        console.log("I am starting engine");
+    }
+    stopEngine() {
+        console.log("I am stopping engine");
+    }
+    move() {
+        console.log("I am moving");
+    }
+    test() {
+        console.log("I am testing");
+    }
+}
+const toyotaCar = new Car1();
+toyotaCar.move();
+// Abstruct Class
+class Vehical2 {
+    test() {
+        console.log("I am testing");
+    }
+}
+class Car2 extends Vehical2 {
+    startEngine() {
+        console.log("I am starting engine");
+    }
+    stopEngine() {
+        console.log("I am stopping engine");
+    }
+    move() {
+        console.log("I am moving");
+    }
+}
+const hundaCar = new Car2();
+hundaCar.stopEngine();
+// Encapsulation
+class BankAccount3 {
+    constructor(accountNumber, _balance, accountName) {
+        this.accountNumber = accountNumber;
+        this._balance = _balance;
+        this.accountName = accountName;
+    }
+    get getBalance() {
+        return this._balance;
+    }
+    set getBalance(ammount) {
+        this._balance = this._balance + ammount;
+    }
+}
+class BankAccount4 extends BankAccount3 {
+}
+const checkAccount2 = new BankAccount4(232323, 2000, "World");
+checkAccount2.getBalance;
+const checkAccount = new BankAccount3(101110101, 1000, "Hello");
+checkAccount.accountNumber;

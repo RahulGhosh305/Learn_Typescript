@@ -6,7 +6,7 @@
  **  getter and setter
  **  Polymorphism
  **  Abstraction
- **
+ **  Encapsulation
  **/
 
 // Class
@@ -296,3 +296,90 @@ getNumberOfSleepRecord(man2);
 getNumberOfSleepRecord(man3);
 
 // Abstruction
+// 2 Ways -> Interface
+//        -> Abstruct class
+
+// Idea
+interface Vehical1 {
+  startEngine(): void;
+  stopEngine(): void;
+  move(): void;
+}
+
+// Real Implementation
+class Car1 implements Vehical1 {
+  startEngine(): void {
+    console.log("I am starting engine");
+  }
+
+  stopEngine(): void {
+    console.log("I am stopping engine");
+  }
+
+  move(): void {
+    console.log("I am moving");
+  }
+
+  test(): void {
+    console.log("I am testing");
+  }
+}
+
+const toyotaCar = new Car1();
+toyotaCar.move();
+
+// Abstruct Class
+abstract class Vehical2 {
+  abstract startEngine(): void;
+  abstract stopEngine(): void;
+  abstract move(): void;
+
+  test(): void {
+    console.log("I am testing");
+  }
+}
+
+class Car2 extends Vehical2 {
+  startEngine(): void {
+    console.log("I am starting engine");
+  }
+
+  stopEngine(): void {
+    console.log("I am stopping engine");
+  }
+
+  move(): void {
+    console.log("I am moving");
+  }
+}
+
+const hundaCar = new Car2();
+hundaCar.stopEngine();
+
+// Encapsulation
+class BankAccount3 {
+  public accountNumber: number;
+  private _balance: number;
+  protected accountName: string;
+
+  constructor(accountNumber: number, _balance: number, accountName: string) {
+    this.accountNumber = accountNumber;
+    this._balance = _balance;
+    this.accountName = accountName;
+  }
+
+  get getBalance() {
+    return this._balance;
+  }
+
+  set getBalance(ammount: number) {
+    this._balance = this._balance + ammount;
+  }
+}
+
+class BankAccount4 extends BankAccount3 {}
+const checkAccount2 = new BankAccount4(232323, 2000, "World");
+checkAccount2.getBalance;
+
+const checkAccount = new BankAccount3(101110101, 1000, "Hello");
+checkAccount.accountNumber;
