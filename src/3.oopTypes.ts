@@ -10,7 +10,7 @@
  **/
 
 // Class
-class Animan {
+class Animal1 {
   public name: string;
   public species: string;
   public sound: string;

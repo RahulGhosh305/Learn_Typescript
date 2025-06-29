@@ -2,7 +2,7 @@
  **  Basic Data Types
  **  Primitive Data Type: String, Number, Boolean, Null, Undefined, Symbol --> (Immutable)
  **  Non Primitive Data Type: Object, Array, Tuple, Function --> (Mutable)
- **  Union, Intersection, Never, Nullable, Unknown, Literal type
+ **  Union, Intersection, Never, Nullable, Unknown, Literal type, Optional Type
  **  Name Alias, Type Alias
  **/
 
