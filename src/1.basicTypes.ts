@@ -1,14 +1,17 @@
 /**
  **  Basic Data Types
  **  Primitive Data Type: String, Number, Boolean, Null, Undefined, Symbol --> (Immutable)
- **  Non Primitive Data Type: Object, Array, Tuple, Function --> (Mutable)
+ **  Non Primitive Data Type: Object, Array, Tuple and Tuple Relataed, Function --> (Mutable)
  **  Union, Intersection, Never, Nullable, Unknown, Literal type, Optional Type
  **  Name Alias, Type Alias
  **/
 
 // Primitive Data Type
-// String
-const courseName: string = "Typescript";
+// String Explicit Way
+const courseName1: string = "Typescript";
+
+// String Implicit Way
+const courseName2 = "Typescript";
 
 // Number
 const courseDuration: number = 6.5;
@@ -20,18 +23,62 @@ const isAdvance: boolean = true;
 const noValue: null = null;
 
 // Undefined
-const x: undefined = undefined;
+const val: undefined = undefined;
 
 // Non Primitive Data Types
 // Array
-const employees: string[] = ["Rahul", "Joy"];
+const employees: readonly string[] = ["Rahul", "Joy"]; // The readonly keyword can prevent arrays from being changed.
 const employeesIds: number[] = [1, 2];
 
-// Tuple
+// Tuple: A tuple is a typed array with a pre-defined length and types for each index.
 const cordinates: [number, number] = [12.233, 23.322];
-const info: [string, number, boolean] = ["Rahul", 28, true];
+const info: readonly [string, number, boolean] = ["Rahul", 28, true]; // A good practice is to make your tuple readonly.
 
-// Object
+// Named Tuples
+const graph: [x: number, y: number] = [55.2, 43.5];
+
+// Destructuring Tuples
+{
+  const [x, y] = graph;
+}
+
+// Enums
+enum CardinalDirections {
+  North, //  Initialized value can 1 [North = 1]
+  East,
+  South,
+  West,
+}
+
+const currentDirection = CardinalDirections.North;
+console.log(currentDirection); // log result 0
+const lastDirection = CardinalDirections.West;
+console.log(lastDirection); // log result 3
+
+// More
+enum StatusCodes {
+  NotFound = 404,
+  Success = 200,
+  Accepted = 202,
+  BadRequest = 400,
+}
+// logs 404
+console.log(StatusCodes.NotFound);
+// logs 200
+console.log(StatusCodes.Success);
+
+// Enums can also contain strings.
+enum CardinalDirections {
+  north = "North",
+  east = "East",
+  south = "South",
+  west = "West",
+}
+
+console.log(CardinalDirections.north); // logs "North"
+console.log(CardinalDirections.west); // logs "West"
+
+// Object in typed
 let coder: {
   fName: string;
   mName?: string; // Optional Type
@@ -44,7 +91,7 @@ let coder: {
 } = {
   fName: "Rahul",
   lName: "Ghosh",
-  companyName: "Google",
+  companyName: "XYZ",
   position: "SWE",
   stack: "Web",
   experience: 3,

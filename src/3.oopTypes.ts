@@ -15,13 +15,13 @@ class Animal1 {
   public species: string;
   public sound: string;
 
-  constructor(name: string, species: string, sound: string) {
+  public constructor(name: string, species: string, sound: string) {
     this.name = name;
     this.species = species;
     this.sound = sound;
   }
 
-  makeSound() {
+  public makeSound() {
     console.log(`${this.name} is call by ${this.sound}`);
   }
 }
@@ -29,13 +29,13 @@ class Animal1 {
 // Alternative above class
 class AnimalAlternative {
   // Parameter Properties
-  constructor(
+  public constructor(
     public name: string,
     public species: string,
     public sound: string
   ) {}
 
-  makeSound() {
+  public makeSound() {
     console.log(`${this.name} is call by ${this.sound}`);
   }
 }

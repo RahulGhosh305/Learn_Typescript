@@ -11,7 +11,7 @@
  **  More Type --> Pick, Omit, Readonly, Partial, Requied, Record, EmptyObject
  **/
 
-// Type Assertions
+// Type Assertions / Type Casting
 let anything: any;
 anything = "Next Level Typescript";
 (anything as string).length; // type assertions
@@ -22,7 +22,10 @@ anything2 = 22;
 (anything2 as number).toFixed(); // type assertions
 
 // more example
-function kgToGram(val: string | number): string | number | undefined {
+function kgToGram(
+  val: string | number,
+  optionalValue?: string | number // the `?` operator here marks parameter `optionalValue` as optional
+): string | number | undefined {
   if (typeof val === "string") {
     const convertedData = parseFloat(val) * 1000;
     return `Convert result : ${convertedData}`;
